@@ -1,0 +1,24 @@
+services:
+  api1:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - ID=1
+      - GIN_MODE=release
+
+  api2:
+    build: .
+    ports:
+      - "3001:3000"
+    environment:
+      - ID=2
+      - GIN_MODE=release
+
+  reverseproxy:
+    build: ./reverseproxy
+    ports:
+      - "3333:80"
+    depends_on:
+      - api1
+      - api2
