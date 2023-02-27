@@ -10,6 +10,7 @@ import (
 
 func main() {
 	serviceId := os.Getenv("ID")
+	port := os.Getenv("PORT")
 
 	fmt.Printf("API Service #%s\n", serviceId)
 
@@ -19,5 +20,5 @@ func main() {
 			"ping": fmt.Sprintf("OK #%s", serviceId),
 		})
 	})
-	r.Run("0.0.0.0:3000")
+	r.Run(fmt.Sprintf("0.0.0.0:%s", port))
 }
