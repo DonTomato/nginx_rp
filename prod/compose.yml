@@ -1,20 +1,20 @@
 services:
   api1:
-    build: .
+    image: dontomato/serviceexp:gs-ping
     environment:
       - ID=1
       - PORT=3001
       - GIN_MODE=release
 
   api2:
-    build: .
+    image: dontomato/serviceexp:gs-ping
     environment:
       - ID=2
       - PORT=3002
       - GIN_MODE=release
 
   reverseproxy:
-    build: ./reverseproxy
+    image: dontomato/serviceexp:gs-rp
     ports:
       - "80:80"
     depends_on:
