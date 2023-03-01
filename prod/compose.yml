@@ -1,6 +1,7 @@
 services:
   api1:
     image: dontomato/serviceexp:gs-ping
+    restart: always 
     environment:
       - ID=1
       - PORT=3001
@@ -8,6 +9,7 @@ services:
 
   api2:
     image: dontomato/serviceexp:gs-ping
+    restart: always 
     environment:
       - ID=2
       - PORT=3002
@@ -15,6 +17,7 @@ services:
 
   reverseproxy:
     image: dontomato/serviceexp:gs-rp
+    restart: always 
     ports:
       - "80:80"
     depends_on:
