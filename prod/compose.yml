@@ -6,6 +6,7 @@ services:
       - ID=1
       - PORT=3001
       - GIN_MODE=release
+      - NAME
 
   api2:
     image: dontomato/serviceexp:gs-ping
@@ -14,6 +15,7 @@ services:
       - ID=2
       - PORT=3002
       - GIN_MODE=release
+      - NAME
 
   reverseproxy:
     image: dontomato/serviceexp:gs-rp

@@ -13,8 +13,13 @@ const version = 3
 func main() {
 	serviceId := os.Getenv("ID")
 	port := os.Getenv("PORT")
+	name := os.Getenv("NAME")
 
 	fmt.Printf("API Service v%d #%s\n", version, serviceId)
+
+	if name != "" {
+		fmt.Printf("Hello %s\n", name)
+	}
 
 	r := gin.Default()
 	r.GET("/", func(c *gin.Context) {
